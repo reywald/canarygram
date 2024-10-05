@@ -1,4 +1,7 @@
 import "./App.css";
+import Header from "./components/Header";
+import Post from "./components/Post";
+import Footer from "./components/Footer";
 import Singer from "./assets/american_singer_canary.jpg";
 import Crest from "./assets/crested_canary.jpg";
 import Frills from "./assets/frilled_canary.jpg";
@@ -6,51 +9,27 @@ import Harlequin from "./assets/harlequin_portuguese_canary.jpg";
 import Liz from "./assets/lizard_canary.jpg";
 import Red from "./assets/red_domestic_canary.jpg";
 
+const canariesArray = [
+  { image: Singer, name: "Singer", id: 1 },
+  { image: Crest, name: "Crest", id: 2 },
+  { image: Frills, name: "Frills", id: 3 },
+  { image: Harlequin, name: "Harlequin", id: 4 },
+  { image: Liz, name: "Liz", id: 5 },
+  { image: Red, name: "Red", id: 6 },
+];
+
 function App() {
   return (
     <div>
-      <header className="header-component">
-        <h1>Canarygram</h1>
-      </header>
+      <Header />
 
       <ul className="post-list">
-        <li className="post-component">
-          <button>
-            <img src={Singer} alt="Singer" />
-            <p>Singer</p>
-          </button>
-        </li>
-        <li className="post-component">
-          <button>
-            <img src={Crest} alt="Crest" />
-            <p>Crest</p>
-          </button>
-        </li>
-        <li className="post-component">
-          <button>
-            <img src={Frills} alt="Frills" />
-            <p>Frills</p>
-          </button>
-        </li>
-        <li className="post-component">
-          <button>
-            <img src={Harlequin} alt="Harlequin" />
-            <p>Harlequin</p>
-          </button>
-        </li>
-        <li className="post-component">
-          <button>
-            <img src={Liz} alt="Liz" />
-            <p>Liz</p>
-          </button>
-        </li>
-        <li className="post-component">
-          <button>
-            <img src={Red} alt="Red" />
-            <p>Red</p>
-          </button>
-        </li>
+        {canariesArray.map((canary) => (
+          <Post key={canary.id} image={canary.image} name={canary.name} />
+        ))}
       </ul>
+
+      <Footer />
     </div>
   );
 }
