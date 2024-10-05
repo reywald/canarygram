@@ -2,6 +2,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Post from "./components/Post";
 import Footer from "./components/Footer";
+import SelectedItem from "./components/SelectedItem";
 import Singer from "./assets/american_singer_canary.jpg";
 import Crest from "./assets/crested_canary.jpg";
 import Frills from "./assets/frilled_canary.jpg";
@@ -23,11 +24,17 @@ function App() {
     <div>
       <Header />
 
-      <ul className="post-list">
-        {canariesArray.map((canary) => (
-          <Post key={canary.id} image={canary.image} name={canary.name} />
-        ))}
-      </ul>
+      <div className="app-content">
+        <ul className="post-list">
+          {canariesArray.map((canary) => (
+            <Post key={canary.id} image={canary.image} name={canary.name} />
+          ))}
+        </ul>
+        <SelectedItem
+          image={canariesArray[0].image}
+          name={canariesArray[0].name}
+        />
+      </div>
 
       <Footer />
     </div>
