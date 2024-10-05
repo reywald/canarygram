@@ -1,8 +1,8 @@
 function SelectedItem({ image, name }) {
   return (
-    <div className="selectedItem">
+    <div className="selected-item">
       <p>{name}</p>
-      <img src={Image} alt={name} />
+      <img src={image} alt={name} />
     </div>
   );
 }

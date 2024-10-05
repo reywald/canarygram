@@ -1,10 +1,10 @@
-function Post({ image, name }) {
+function Post({ image, name, setSelectedPostName }) {
   const handleClick = (canaryName) =>
     window.alert(`You clicked: ${canaryName}`);
 
   return (
     <li className="post-component">
-      <button onClick={() => handleClick(name)}>
+      <button onClick={() => setSelectedPostName(name)}>
         <img src={image} alt={name} />
         <p className="post-name">{name}</p>
       </button>
