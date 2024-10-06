@@ -5,6 +5,8 @@ import Header from "./components/Header";
 import Post from "./components/Post";
 import Footer from "./components/Footer";
 import SelectedItem from "./components/SelectedItem";
+import Shuffle from "./components/Shuffle";
+
 import Singer from "./assets/american_singer_canary.jpg";
 import Crest from "./assets/crested_canary.jpg";
 import Frills from "./assets/frilled_canary.jpg";
@@ -23,7 +25,8 @@ const canariesArray = [
 
 function App() {
   const [selectedPostName, setSelectedPostName] = useState("Singer");
-  const selectedPost = canariesArray.find(
+  const [canaryArray, setCanaryArray] = useState(canariesArray);
+  const selectedPost = canaryArray.find(
     (canary) => canary.name === selectedPostName
   );
 
@@ -32,8 +35,9 @@ function App() {
       <Header />
 
       <div className="app-content">
+        <Shuffle setItemsArray={setCanaryArray} />
         <ul className="post-list">
-          {canariesArray.map((canary) => (
+          {canaryArray.map((canary) => (
             <Post
               key={canary.id}
               image={canary.image}
